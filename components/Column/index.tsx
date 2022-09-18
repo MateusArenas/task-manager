@@ -16,9 +16,10 @@ interface ColumnProps {
     content: string
   }>
   index: number
+  className?: string | undefined
 }
 
-const Column: React.FC<ColumnProps> = ({ column, tasks, index, isDropDisabled }) => {
+const Column: React.FC<ColumnProps> = ({ column, tasks, index, isDropDisabled, ...props }) => {
   return (
     <Draggable 
       draggableId={column.id}
@@ -27,10 +28,12 @@ const Column: React.FC<ColumnProps> = ({ column, tasks, index, isDropDisabled })
       {provided => (
         <Container ref={provided.innerRef}
           {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          {...props}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Title>{column.title}</Title>
-            <Handle {...provided.dragHandleProps} />
+            {/* <Handle {...provided.dragHandleProps} /> */}
           </div>
           <Droppable 
             droppableId={column.id} 

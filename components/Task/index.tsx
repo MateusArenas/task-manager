@@ -19,16 +19,19 @@ const Task: React.FC<TaskProps> = ({ task, index }) => {
       // isDragDisabled={true}
     >
       {(provied, snapshot) => (
-        <Container 
-          ref={provied.innerRef}
-          {...provied.draggableProps}
-          isDragging={snapshot.isDragging}
-          // isDragDisabled={true}
-          aria-roledescription="Press space bar to lift the task"
-        >
-          {task.content}
-          <Handle {...provied.dragHandleProps} />
-        </Container>
+        <a href="#gne">
+          <Container 
+            ref={provied.innerRef}
+            {...provied.draggableProps}
+            {...provied.dragHandleProps}
+            isDragging={snapshot.isDragging}
+            // isDragDisabled={true}
+            aria-roledescription="Press space bar to lift the task"
+          >
+            {task.content}
+            {/* <Handle {...provied.dragHandleProps} /> */}
+          </Container>
+        </a>
       )}
     </Draggable>
   )
