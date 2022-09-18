@@ -1,8 +1,15 @@
-import '../styles/globals.css'
+// import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
+// import { resetServerContext } from "react-beautiful-dnd"
+
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  
+// resetServerContext()
+
+  return (
+      <Component {...pageProps} />
+  )
 }
 
 export default MyApp
